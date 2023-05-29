@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field, PositiveInt
 MAX_LIMIT = 100
 MIN_LIMIT = 1
 
+
 class CharityProjectCreate(BaseModel):
     name: str = Field(..., min_length=MIN_LIMIT, max_length=MAX_LIMIT)
     description: str = Field(..., min_length=MIN_LIMIT)
