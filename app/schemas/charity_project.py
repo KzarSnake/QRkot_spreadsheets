@@ -3,13 +3,12 @@ from typing import Optional
 
 from pydantic import BaseModel, Field, PositiveInt
 
-MAX_LIMIT = 100
-MIN_LIMIT = 1
+from app.core.constants import LENGTH, MIN_LENGTH
 
 
 class CharityProjectCreate(BaseModel):
-    name: str = Field(..., min_length=MIN_LIMIT, max_length=MAX_LIMIT)
-    description: str = Field(..., min_length=MIN_LIMIT)
+    name: str = Field(..., min_length=MIN_LENGTH, max_length=LENGTH)
+    description: str = Field(..., min_length=MIN_LENGTH)
     full_amount: PositiveInt
 
     class Config:
@@ -17,8 +16,8 @@ class CharityProjectCreate(BaseModel):
 
 
 class CharityProjectUpdate(BaseModel):
-    name: Optional[str] = Field(min_length=MIN_LIMIT, max_length=MAX_LIMIT)
-    description: Optional[str] = Field(min_length=MIN_LIMIT)
+    name: Optional[str] = Field(min_length=MIN_LENGTH, max_length=LENGTH)
+    description: Optional[str] = Field(min_length=MIN_LENGTH)
     full_amount: Optional[PositiveInt]
 
     class Config:

@@ -15,7 +15,7 @@ main_router.include_router(
     tags=('Charity projects',),
 )
 main_router.include_router(
-    google_api_router, prefix='/google', tags=['Google']
+    google_api_router, prefix='/google', tags=('Google',)
 )
 main_router.include_router(
     donation_router, prefix='/donation', tags=('Donations',)
